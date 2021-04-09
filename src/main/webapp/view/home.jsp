@@ -16,6 +16,10 @@
 	Welcome to *REDACTED* home page. 
 	</p>
 	
+		User: <security:authentication property="principal.username" />
+		<br><br>
+		Role(s): <security:authentication property="principal.authorities" />
+	
 	<form:form action="${pageContext.request.contextPath}/logout"
 			   method="POST">
 			   
