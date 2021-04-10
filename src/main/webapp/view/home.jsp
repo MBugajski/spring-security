@@ -20,6 +20,14 @@
 		<br><br>
 		Role(s): <security:authentication property="principal.authorities" />
 	
+	<hr>
+	
+	<p>
+		<a href="${pageContext.request.contextPath}/management">Management Page</a>
+	</p>
+	
+	<hr>
+	
 	<form:form action="${pageContext.request.contextPath}/logout"
 			   method="POST">
 			   
