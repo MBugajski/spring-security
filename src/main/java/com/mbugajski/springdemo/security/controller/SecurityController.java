@@ -11,4 +11,10 @@ public class SecurityController {
 		
 		return "home";
 	}
+	
+	@GetMapping("/management")
+	public String showManagement() {
+		
+		return "management";
+	}
 }
