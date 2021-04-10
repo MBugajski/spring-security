@@ -28,6 +28,9 @@ public class SpringDemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 			.antMatchers("/css/**").permitAll()
+			.antMatchers("/").hasRole("EMPLOYEE")
+			.antMatchers("/management/**").hasRole("MANAGER")
+			.antMatchers("/systems/**").hasRole("ADMIN")
 			.anyRequest()
 			.authenticated()
 			.and()
