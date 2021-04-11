@@ -28,6 +28,12 @@
 	
 	<hr>
 	
+	<p>
+		<a href="${pageContext.request.contextPath}/systems">Admin Dashboard</a>
+	</p>
+	
+	<hr>
+	
 	<form:form action="${pageContext.request.contextPath}/logout"
 			   method="POST">
 			   
