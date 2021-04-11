@@ -8,8 +8,14 @@ public class LoginController {
 
 	@GetMapping("/showMyLoginPage")
 	public String showMyLoginPage() {
-		
+
 //		return "plain-login";
 		return "bootstrap-login";
+	}
+
+	@GetMapping("/access-denied")
+	public String showAccessDenied() {
+
+		return "access-denied";
 	}
 }
