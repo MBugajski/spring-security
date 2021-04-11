@@ -17,4 +17,10 @@ public class SecurityController {
 		
 		return "management";
 	}
+
+	@GetMapping("/systems")
+	public String showSystems() {
+		
+		return "systems";
+	}
 }
