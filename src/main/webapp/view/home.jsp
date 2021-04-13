@@ -22,15 +22,19 @@
 	
 	<hr>
 	
-	<p>
-		<a href="${pageContext.request.contextPath}/management">Management Page</a>
-	</p>
+	<security:authorize access="hasRole('MANAGER')">
+		<p>
+			<a href="${pageContext.request.contextPath}/management">Management Page</a>
+		</p>
+	</security:authorize>
 	
 	<hr>
 	
-	<p>
-		<a href="${pageContext.request.contextPath}/systems">Admin Dashboard</a>
-	</p>
+	<security:authorize access="hasRole('ADMIN')">
+		<p>
+			<a href="${pageContext.request.contextPath}/systems">Admin Dashboard</a>
+		</p>
+	</security:authorize>
 	
 	<hr>
 	
