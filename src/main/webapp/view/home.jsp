@@ -27,9 +27,7 @@
 			<a href="${pageContext.request.contextPath}/management">Management Page</a>
 		</p>
 	</security:authorize>
-	
-	<hr>
-	
+		
 	<security:authorize access="hasRole('ADMIN')">
 		<p>
 			<a href="${pageContext.request.contextPath}/systems">Admin Dashboard</a>
