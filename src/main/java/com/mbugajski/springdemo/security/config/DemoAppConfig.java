@@ -54,6 +54,10 @@ public class DemoAppConfig implements WebMvcConfigurer {
 		logger.info(">>> jdbc.url=" + env.getProperty("jdbc.url"));
 		logger.info(">>> jdbc.url=" + env.getProperty("jdbc.user"));
 		
+		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		securityDataSource.setUser(env.getProperty("jdbc.user"));
+		securityDataSource.setPassword(env.getProperty("jdbc.password"));
+		
 		return securityDataSource();
 	}
 	
