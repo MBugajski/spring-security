@@ -1,6 +1,9 @@
 package com.mbugajski.springdemo.security.config;
 
+import java.beans.PropertyVetoException;
 import java.util.logging.Logger;
+
+import javax.activation.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +15,8 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @EnableWebMvc
@@ -34,6 +39,19 @@ public class DemoAppConfig implements WebMvcConfigurer {
 		viewResolver.setSuffix(".jsp");
 		
 		return viewResolver;
+	}
+	
+	@Bean
+	public DataSource securityDataSource() {
+		ComboPooledDataSource securityDataSource = new ComboPooledDataSource();
+		
+		try {
+			securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
+		} catch (PropertyVetoException exc) {
+			throw new RuntimeException(exc);
+		}
+		
+		return securityDataSource();
 	}
 	
 }
