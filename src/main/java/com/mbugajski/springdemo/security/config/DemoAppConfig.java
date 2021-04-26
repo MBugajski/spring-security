@@ -61,6 +61,13 @@ public class DemoAppConfig implements WebMvcConfigurer {
 		return securityDataSource();
 	}
 	
+	private int getIntProperty(String propName ) {
+		
+		String propVal= env.getProperty(propName);
+		
+		return Integer.parseInt(propVal);
+	}
+	
 }
 
 
