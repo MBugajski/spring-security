@@ -21,11 +21,7 @@ public class SpringDemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		UserBuilder users = User.withDefaultPasswordEncoder();
-
-		auth.inMemoryAuthentication().withUser(users.username("john").password("j123").roles("EMPLOYEE"))
-				.withUser(users.username("mike").password("m123").roles("EMPLOYEE", "MANAGER"))
-				.withUser(users.username("tom").password("t123").roles("EMPLOYEE", "ADMIN"));
+		auth.jdbcAuthentication().dataSource(securityDataSource);
 
 	}
 
