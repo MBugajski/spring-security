@@ -3,7 +3,7 @@ package com.mbugajski.springdemo.security.config;
 import java.beans.PropertyVetoException;
 import java.util.logging.Logger;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
