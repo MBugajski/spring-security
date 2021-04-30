@@ -21,7 +21,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages="package com.mbugajski.springdemo.security")
-@PropertySource({ "classpath:persistence-mysql.properties" })
+@PropertySource("classpath:persistence-mysql.properties")
 public class DemoAppConfig implements WebMvcConfigurer {
 
     @Autowired
@@ -63,10 +63,10 @@ public class DemoAppConfig implements WebMvcConfigurer {
 		securityDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));
 		securityDataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
 		
-		return securityDataSource();
+		return securityDataSource;
 	}
 	
-	private int getIntProperty(String propName ) {
+	private int getIntProperty(String propName) {
 		
 		String propVal= env.getProperty(propName);
 		
