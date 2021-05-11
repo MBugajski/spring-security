@@ -29,12 +29,13 @@ public class SpringDemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-			.antMatchers("/css/**").permitAll()
-			.antMatchers("/").hasRole("EMPLOYEE")
+			.antMatchers("/").permitAll() // allow public access to landing page
+//			.antMatchers("/css/**").permitAll()
+			.antMatchers("/employees").hasRole("EMPLOYEE")
 			.antMatchers("/management/**").hasRole("MANAGER")
 			.antMatchers("/systems/**").hasRole("ADMIN")
-			.anyRequest()
-			.authenticated()
+//			.anyRequest()
+//			.authenticated()
 			.and()
 			.formLogin()
 			.loginPage("/showMyLoginPage")
